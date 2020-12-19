@@ -12,35 +12,26 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
-
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/start.css" />
-    <script src="./js/start.js"></script>
-
-    <title>Get Started</title>
+    <link rel="stylesheet" href="./css/crops.css" />
+    <title>Vikas' Recommendations</title>
   </head>
   <body>
     <div class="wrapper">
-      <div class="start-navbar">
-        <div onclick="ToggleStartNavigation(this)" class="selected">
-          <span class="en">Crops</span><span class="hi"></span>
+      <div class="crops-heading-text">
+        <div class="heading-row">
+          <img src="./assets/vikas1.webp" />
+          <h2>Vikas' Recommendations</h2>
         </div>
-        <div onclick="ToggleStartNavigation(this)">
-          <span class="en">News</span><span class="hi"></span>
-        </div>
-      </div>
-      <div class="start-main-container">
-        <div id="crops-container">
-          <h4>You dont have any crops right now</h4>
-          <div class="start-farming-button">
-            <a href="./crops.html"
-              ><button type="button" class="">Start farming</button>
-            </a>
-          </div>
-        </div>
-        <div id="news-container">
-          <h1>News</h1>
-        </div>
+
+        <p>
+          Based on your <span class="underline-yellow">location</span>,
+          <span class="underline-yellow">soil type</span>,
+          <span class="underline-yellow">time of the year</span> and
+          <span class="underline-yellow">past profits</span>, I think you should
+          grow one of these crops
+        </p>
       </div>
     </div>
 

@@ -51,7 +51,6 @@ a {
 }
 
 .home-next-button button:active {
-  background-color: #000;
   transform: translateY(4px);
 }
 

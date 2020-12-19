@@ -1,0 +1,21 @@
+.crops-heading-text {
+  padding: 1rem;
+}
+.heading-row {
+  display: flex;
+  align-items: center;
+}
+
+.heading-row h2 {
+  border-bottom: 4px solid #ffd700;
+}
+
+.underline-yellow {
+  text-decoration: underline;
+  text-decoration-color: #ffd700;
+}
+
+.crops-heading-text img {
+  height: 50px;
+  border-radius: 50%;
+}
