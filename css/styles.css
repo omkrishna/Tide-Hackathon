@@ -20,7 +20,7 @@ a {
 }
 
 .home-logo-container img {
-  height: 40vh;
+  height: 35vh;
   border-radius: 50%;
 }
 
@@ -33,6 +33,28 @@ a {
   font-size: 10vw;
 }
 
+.home-next-button {
+  position: absolute;
+  bottom: 5%;
+  left: 25%;
+  width: 50%;
+}
+
+.home-next-button button {
+  width: 100%;
+  height: 6vh;
+  background-color: #000;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.home-next-button button:active {
+  background-color: #000;
+  transform: translateY(4px);
+}
+
 @media only screen and (min-width: 700px) {
   .home-logo-container {
     height: 40vh;
@@ -42,5 +64,11 @@ a {
   }
   .home-title-text h1 {
     font-size: 4vw;
+  }
+  .home-next-button {
+    position: absolute;
+    bottom: 3%;
+    left: 80%;
+    width: 15%;
   }
 }

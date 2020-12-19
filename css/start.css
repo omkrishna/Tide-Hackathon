@@ -1,0 +1,15 @@
+.start-navbar {
+  padding: 2% 0;
+  display: flex;
+  justify-content: space-evenly;
+
+  text-transform: uppercase;
+}
+
+.start-navbar div {
+  font-weight: 500;
+}
+
+.selected {
+  border-bottom: 4px solid #ffd700;
+}
