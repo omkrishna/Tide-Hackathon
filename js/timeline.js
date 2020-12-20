@@ -14,35 +14,29 @@ function showTimeline(crop) {
   <div class="timeline-container">
     <div class="row timeline-row">
       <div class="col-2"><div class="timeline-num">1</div></div>
-      <div class="col-10">Plough the fields and add fertilizer</div>
+      <div class="col-10">${crop[19]}</div>
     </div>
     <div class="row timeline-row">
       <div class="col-2"><div class="timeline-num">2</div></div>
-      <div class="col-10">Plough the fields and add fertilizer</div>
+      <div class="col-10">${crop[20]}</div>
     </div>
     <div class="row timeline-row">
       <div class="col-2"><div class="timeline-num">3</div></div>
-      <div class="col-10">Plough the fields and add fertilizer</div>
+      <div class="col-10">${crop[21]}</div>
     </div>
     <div class="row timeline-row">
       <div class="col-2"><div class="timeline-num">4</div></div>
-      <div class="col-10">Plough the fields and add fertilizer</div>
+      <div class="col-10">${crop[22]}</div>
     </div>
     <div class="row timeline-row">
       <div class="col-2"><div class="timeline-num">5</div></div>
-      <div class="col-10">Plough the fields and add fertilizer</div>
+      <div class="col-10">${crop[23]}</div>
     </div>
     <div class="row timeline-row">
       <div class="col-2"><div class="timeline-num">6</div></div>
-      <div class="col-10">Plough the fields and add fertilizer</div>
+      <div class="col-10">${crop[24]}</div>
     </div>
   </div>
 </div>
-<div class="timeline-footer">
-  <p>
-    <span class="underline-yellow">Note</span> : Instructions get modified
-    due to climate change. Vikas will send you a notification everytime
-    that happens
-  </p>
-</div>`;
+`;
 }

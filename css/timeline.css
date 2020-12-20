@@ -16,10 +16,9 @@
 
 .timeline-row {
   margin: 1rem 0;
+  text-transform: capitalize;
 }
 
 .timeline-footer {
-  position: absolute;
-  bottom: 0;
   padding: 1rem;
 }
