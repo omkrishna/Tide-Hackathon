@@ -1,5 +1,6 @@
 .crops-heading-text {
   padding: 1rem;
+  background-color: lightgoldenrodyellow;
 }
 .heading-row {
   display: flex;
@@ -18,4 +19,38 @@
 .crops-heading-text img {
   height: 50px;
   border-radius: 50%;
+}
+
+.crop-tile {
+  padding: 0.5rem;
+  margin: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.crop-tile img {
+  height: 50px;
+  width: 50px;
+
+  border-radius: 50%;
+}
+
+.crop-tile-name {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.crop-tile-cost,
+.crop-tile-profit {
+  font-size: 12px;
+}
+
+.crop-tile-button {
+  border-radius: 15px;
+  border: 4px solid #ffd700;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
 }
