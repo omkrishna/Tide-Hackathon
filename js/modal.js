@@ -8,7 +8,17 @@ window.onclick = function (event) {
   }
 };
 
-function showModal(btn, name, soil, temp, time, pesticides, state, image) {
+function showModal(
+  btn,
+  name,
+  soil,
+  temp,
+  time,
+  pesticides,
+  state,
+  image,
+  video
+) {
   var newModal = document.createElement("div");
 
   newModal.innerHTML = `<div class="modal-crop-img">
@@ -27,7 +37,7 @@ function showModal(btn, name, soil, temp, time, pesticides, state, image) {
   </div>
   
   <iframe
-    src="https://www.youtube.com/embed/KhmiWy_pxkA"
+    src=${video}
     title="W3Schools Free Online Web Tutorials"
     class="modal-video"
   ></iframe>

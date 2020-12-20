@@ -152,6 +152,7 @@
         var pesticides = crop[7];
         var fertizlizers = crop[8];
         var state = crop[11];
+        var video = crop[12];
         var image = crop[13];
 
         var newCrop = document.createElement("div");
@@ -167,9 +168,9 @@
           <div class="col-6">
             <div class="row crop-tile-name">${name}</div>
             <div class="row crop-tile-cost">Cost/acre : Rs. ${cost}</div>
-            <div class="row crop-tile-profit">Profit/acre : ${profit}</div>
+            <div class="row crop-tile-profit">Profit/acre : Rs. ${profit}</div>
           </div>
-          <div class="col-3 crop-tile-button" onclick="showModal(this, '${name}','${soil}','${temp}','${time}','${pesticides}','${state}','${image}', )">TRY</div>`;
+          <div class="col-3 crop-tile-button" onclick="showModal(this, '${name}','${soil}','${temp}','${time}','${pesticides}','${state}','${image}','${video}' )">TRY</div>`;
 
         document.querySelector(".crop-tile-list").appendChild(newCrop);
       }
@@ -183,8 +184,10 @@
           .then(
             function (response) {
               var range = response.result;
+              var c = Math.floor(Math.random() * 17) + 1;
+              console.log(c);
               if (range.values.length > 0) {
-                for (i = 1; i < 7; i++) {
+                for (i = c; i < c + 6; i++) {
                   var row = range.values[i];
                   // Print columns A and E, which correspond to indices 0 and 4.
                   createCropTile(row);
