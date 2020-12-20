@@ -50,3 +50,43 @@
 #news-container {
   display: none;
 }
+
+.news-inner-container {
+  padding: 1rem;
+}
+
+.yellow-bullet {
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+  background-color: #ffd700;
+}
+
+.news-row {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: underline;
+}
+
+.imd-report {
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+
+.imd-tile {
+  height: 15vh;
+  width: 35vw;
+  background-color: #ffd700;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+}
