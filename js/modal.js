@@ -46,7 +46,7 @@ function showModal(
       <button class="btn btn-lg btn-light close" onclick="closeModal()">Close</button>
     </div>
     <div class="col-8">
-      <button class="btn btn-lg btn-warning">Start Farming</button>
+      <button class="btn btn-lg btn-warning" onclick="startFarming('${name}')">Start Farming</button>
     </div>
   </div>
 </div>`;
@@ -58,4 +58,10 @@ function showModal(
 
 function closeModal() {
   modal.style.display = "none";
+}
+
+function startFarming(cropName) {
+  localStorage.setItem("cropName", cropName);
+  console.log(localStorage.getItem("cropName"));
+  window.location.href = "timeline.html";
 }

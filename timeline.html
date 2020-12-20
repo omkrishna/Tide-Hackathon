@@ -17,47 +17,24 @@
     <link rel="stylesheet" href="./css/start.css" />
     <link rel="stylesheet" href="./css/crops.css" />
     <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/timeline.css" />
 
-    <title>Vikas' Recommendations</title>
+    <title>Vikas' Timeline</title>
   </head>
   <body>
     <div class="wrapper">
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-        <div class="modal-content"></div>
-      </div>
-      <div class="crops-heading-text">
+      <!-- <div class="crops-heading-text">
         <div class="heading-row">
           <img src="./assets/vikas1.webp" />
-          <h2>Vikas' Recommendations</h2>
+          <h2>Vikas' Timeline</h2>
         </div>
-
-        <p>
-          Based on your <span class="underline-yellow">location</span>,
-          <span class="underline-yellow">soil type</span>,
-          <span class="underline-yellow">time of the year</span> and
-          <span class="underline-yellow">past profits</span>, I think you should
-          grow one of these crops
-        </p>
+        <p>For best output, I think you should follow this timeline</p>
         <button id="authorize_button" style="display: none">Authorize</button>
         <button id="signout_button" style="display: none">Sign Out</button>
-      </div>
-      <div class="crop-tile-list">
-        <!-- <div class="crop-tile row">
-          <div class="col-2">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Sa_green_gram.jpg"
-            />
-          </div>
-          <div class="col-1"></div>
-          <div class="col-6">
-            <div class="row crop-tile-name">Moong</div>
-            <div class="row crop-tile-cost">Cost/acre : Rs. 25000</div>
-            <div class="row crop-tile-profit">Profit/acre : Rs. 25000</div>
-          </div>
-          <div class="col-3 crop-tile-button">TRY</div>
-        </div> -->
-      </div>
+      </div> -->
+      <button id="authorize_button" style="display: none">Authorize</button>
+      <button id="signout_button" style="display: none">Sign Out</button>
+      <div class="outer-timeline"></div>
     </div>
 
     <script type="text/javascript">
@@ -129,51 +106,8 @@
         gapi.auth2.getAuthInstance().signOut();
       }
 
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById("content");
-        var textContent = document.createTextNode(message + "\n");
-        pre.appendChild(textContent);
-      }
-
-      function createCropTile(crop) {
-        var name = crop[0];
-        var soil = crop[1];
-        var temp = crop[2];
-        var time = crop[3];
-        var cost = crop[4];
-        var profit = crop[5];
-        var water = crop[6];
-        var pesticides = crop[7];
-        var fertizlizers = crop[8];
-        var state = crop[11];
-        var video = crop[15];
-        var image = crop[18];
-
-        var newCrop = document.createElement("div");
-        newCrop.classList.add("crop-tile");
-        newCrop.classList.add("row");
-
-        newCrop.innerHTML = `<div class="col-2">
-            <img
-              src=${image}
-            />
-          </div>
-          <div class="col-1"></div>
-          <div class="col-6">
-            <div class="row crop-tile-name" onclick="showModal(this, '${name}','${soil}','${temp}','${time}','${pesticides}','${state}','${image}','${video}'  )">${name}</div>
-            <div class="row crop-tile-cost">Cost/acre : Rs. ${cost}</div>
-            <div class="row crop-tile-profit">Profit/acre : Rs. ${profit}</div>
-          </div>
-          <div class="col-3 crop-tile-button" onclick="showModal(this, '${name}','${soil}','${temp}','${time}','${pesticides}','${state}','${image}','${video}' )">TRY</div>`;
-
-        document.querySelector(".crop-tile-list").appendChild(newCrop);
-      }
+      var cropName = localStorage.getItem("cropName");
+      var crop;
 
       function listMajors() {
         gapi.client.sheets.spreadsheets.values
@@ -184,16 +118,13 @@
           .then(
             function (response) {
               var range = response.result;
-              var c = Math.floor(Math.random() * 17) + 1;
-              console.log(c);
-              if (range.values.length > 0) {
-                for (i = c; i < c + 6; i++) {
-                  var row = range.values[i];
-                  // Print columns A and E, which correspond to indices 0 and 4.
-                  createCropTile(row);
+              var i;
+              for (i = 0; i < range.values.length; i++) {
+                var row = range.values[i];
+                if (row[0] == cropName) {
+                  crop = range.values[i];
+                  showTimeline(crop);
                 }
-              } else {
-                console.log("No data found.");
               }
             },
             function (response) {
@@ -203,7 +134,7 @@
       }
     </script>
 
-    <script src="./js/modal.js"></script>
+    <script src="./js/timeline.js"></script>
 
     <script
       async
