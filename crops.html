@@ -12,13 +12,20 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/start.css" />
     <link rel="stylesheet" href="./css/crops.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+
     <title>Vikas' Recommendations</title>
   </head>
   <body>
     <div class="wrapper">
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <div class="modal-content"></div>
+      </div>
       <div class="crops-heading-text">
         <div class="heading-row">
           <img src="./assets/vikas1.webp" />
@@ -162,7 +169,7 @@
             <div class="row crop-tile-cost">Cost/acre : Rs. ${cost}</div>
             <div class="row crop-tile-profit">Profit/acre : ${profit}</div>
           </div>
-          <div class="col-3 crop-tile-button">TRY</div>`;
+          <div class="col-3 crop-tile-button" onclick="showModal(this, '${name}','${soil}','${temp}','${time}','${pesticides}','${state}','${image}', )">TRY</div>`;
 
         document.querySelector(".crop-tile-list").appendChild(newCrop);
       }
@@ -177,22 +184,10 @@
             function (response) {
               var range = response.result;
               if (range.values.length > 0) {
-                for (i = 1; i < 6; i++) {
+                for (i = 1; i < 7; i++) {
                   var row = range.values[i];
                   // Print columns A and E, which correspond to indices 0 and 4.
                   createCropTile(row);
-                  console.log(
-                    row[0] +
-                      ", " +
-                      row[1] +
-                      "," +
-                      row[2] +
-                      "," +
-                      row[3] +
-                      "," +
-                      row[4] +
-                      ","
-                  );
                 }
               } else {
                 console.log("No data found.");
@@ -205,6 +200,8 @@
       }
     </script>
 
+    <script src="./js/modal.js"></script>
+
     <script
       async
       defer
@@ -212,19 +209,20 @@
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()"
     ></script>
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
       crossorigin="anonymous"
     ></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
